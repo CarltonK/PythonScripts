@@ -1,5 +1,5 @@
 Remember the rules:
 
- Rock beats scissors
- Scissors beats paper
- Paper beats rock
+a) Rock beats scissors
+b) Scissors beats paper
+c) Paper beats rock
