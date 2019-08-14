@@ -7,7 +7,10 @@ def rps_game(p1_name,p2_name):
 
     while tries >= 1:
 
+        print('It\'s your turn',p1_name)
         p1_answer = input('Enter either "rock", "paper" or "scissors": ')
+        print()
+        print('It\'s your turn',p2_name)
         p2_answer = input('Enter either "rock", "paper" or "scissors": ')
         combined_answer = p1_answer.lower() + p2_answer.lower()
 
