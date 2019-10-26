@@ -313,5 +313,5 @@ def game_logic():
             print('GAME OVER')
 
 
-
+# Execute the game
 game_logic()
