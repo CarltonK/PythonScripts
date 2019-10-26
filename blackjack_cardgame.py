@@ -1,3 +1,4 @@
+# Player Class
 class Player:
     '''
     Initialize Player
@@ -9,17 +10,12 @@ class Player:
 
     def bet_stake(self):
 
-        '''
-        Place a bet from staked amount.
-        Bet cannot exceed stake
-        '''
-
         while True:
             try:
                 self.stake = int(input('How much would you like to stake? '))
                 self.bet = int(input('How much are you willing to bet? '))
             except:
-                print('An error occured..Try Again')
+                print('Invalid Entry...Try Again')
                 continue
             else:
                 if self.bet > self.stake:
@@ -30,26 +26,20 @@ class Player:
                     break
 
     def lose_bet(self):
-        '''
-        Method called when player loses the game
-        '''
         self.stake -= self.bet
         print('Casino Wins. You Lose.')
-        print('Your balance is: ', self.stake)
+        print('Your balance is: {}'.format(self.stake))
 
     def win_stake(self):
-        '''
-        Method called when player wins the game
-        '''
         self.stake += self.bet * 2
         print('Congratulations. Winner')
-        print('Your balance is: ', self.stake)
+        print('Your balance is: {}'.format(self.stake))
 
     def __str__(self):
 
         return self.name
 
-
+# Dealer Class
 class Dealer():
 
     '''
@@ -62,6 +52,7 @@ class Dealer():
         print()
 
 
+# Card Class
 class Card:
     '''
     Initialize a single card
@@ -82,9 +73,11 @@ class Card:
         '''
 
     def __str__(self):
-        return ('{} of {}'.format(self.rank, self.suit))
+        return ('{} of {}'.format(self.rank,self.suit))
 
+# Deck Class
 
+import random
 class Deck:
 
     '''
@@ -107,18 +100,19 @@ class Deck:
 
         #print(self.deck)
     def shuffle_deck(self):
+
         '''
-        Shuffle Deck
+        Shuffle the deck of cards
         '''
-        import random
+
         random.shuffle(self.deck)
 
     def deal(self):
 
         '''
-        Shuffle deck then return a random card
+        Return a random card
         '''
-        import random
+
         deck.shuffle_deck()
         dealt_card = random.choice(self.deck)
         return dealt_card
@@ -128,20 +122,20 @@ class Deck:
         return str(self.deck)
 
 
+
+# Hand Class
+deck = Deck()
 class Hand:
 
     '''
-    Show Hand.
+    Show current
     '''
 
     def __init__(self):
         self.hand = []
-        deck = Deck()
+
 
     def add_card(self):
-        '''
-        Allows adding card to hand
-        '''
         self.hand.append(deck.deal())
 
         return self.hand
@@ -202,6 +196,43 @@ class Hand:
         return total_value
 
 
+
+'''
+# Test(1)
+try:
+    card = Card()
+    print()
+    print('Test One')
+    print('Cards are: ',card)
+except:
+    print('There is an error in initializing cards')
+
+# Test(2)
+try:
+    deck = Deck()
+    print()
+    print('Test Two')
+    print('Deck is: ',deck)
+    print('.....')
+    print('Dealt Card: ',deck.deal())
+except:
+    print('There is an error in initializing the deck of cards')
+
+# Test(3)
+try:
+    hand = Hand()
+    print()
+    print('Test Three')
+    print('First Hand: ',hand.add_card())
+    print('Second Hand: ',hand.add_card())
+    print('All: ',hand)
+
+    print('Current Value: ',hand.hand_value())
+except:
+    print('There is an error')
+'''
+
+# Game Logic
 def game_logic():
 
     try:
@@ -214,7 +245,6 @@ def game_logic():
         dealer = Dealer()
         # Player Entry
         player = Player()
-        # Player places a bet
         player.bet_stake()
         # Deck Initialization
         deck = Deck()
@@ -227,15 +257,15 @@ def game_logic():
         player_hand.add_card()
         player_hand.add_card()
         print()
-        print('{} Hand: '.format(player), player_hand)
-        print('{} Points: '.format(player), player_hand.hand_value())
+        print('{} Hand: '.format(player),player_hand)
+        print('{} Points: '.format(player),player_hand.hand_value())
 
         # Give dealer two cards
         dealer_hand.add_card()
         dealer_hand.add_card()
         print()
-        print('Dealer Hand: ', dealer_hand)
-        print('Dealer Points: ', dealer_hand.hand_value())
+        print('Dealer Hand: ',dealer_hand)
+        print('Dealer Points: ',dealer_hand.hand_value())
 
     except:
 
@@ -244,30 +274,27 @@ def game_logic():
 
     finally:
 
-        while player_hand.hand_value() < 21:
-            '''
-            If player/dealer hits, a card is added to their hand
-            If player stands, dealer hits
-            '''
+        while player_hand.hand_value() < 21 and dealer_hand.hand_value() < 21:
             hit_or_stand = input('Hit(H) or Stand(S): ')
             if hit_or_stand.lower() == 'h':
                 player_hand.add_card()
                 print()
-                print('{} Hand: '.format(player), player_hand)
-                print('{} Points: '.format(player), player_hand.hand_value())
+                print('{} Hand: '.format(player),player_hand)
+                print('{} Points: '.format(player),player_hand.hand_value())
                 print()
-                print('Dealer Hand: ', dealer_hand)
-                print('Dealer Points: ', dealer_hand.hand_value())
+                print('Dealer Hand: ',dealer_hand)
+                print('Dealer Points: ',dealer_hand.hand_value())
                 continue
             else:
                 dealer_hand.add_card()
                 print()
-                print('{} Hand: '.format(player), player_hand)
-                print('{} Points: '.format(player), player_hand.hand_value())
+                print('{} Hand: '.format(player),player_hand)
+                print('{} Points: '.format(player),player_hand.hand_value())
                 print()
-                print('Dealer Hand: ', dealer_hand)
-                print('Dealer Points: ', dealer_hand.hand_value())
+                print('Dealer Hand: ',dealer_hand)
+                print('Dealer Points: ',dealer_hand.hand_value())
                 continue
+
 
         if player_hand.hand_value() < dealer_hand.hand_value():
             print()
