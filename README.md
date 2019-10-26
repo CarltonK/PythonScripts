@@ -32,3 +32,11 @@ GUESSING GAME
        -closer to the number than the previous guess return 'WARMER!'
        -farther from the number than the previous guess, return 'COLDER!'")
 4. When the player's guess equals the number, tell them they've guessed correctly and how many guesses it took!
+
+BlackJack Game....
+Requirements
+	one player v dealer
+	player can hit or stand
+	player states stake and bet
+	track player money
+	alert losses and wins
