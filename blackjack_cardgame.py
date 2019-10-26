@@ -1,7 +1,14 @@
+'''
+Welcome to BLACKJACK
+This game is a work in progress
+Feel free to comment and send your code additions
+'''
+
 # Player Class
 class Player:
     '''
     Initialize Player
+
     '''
     def __init__(self):
         self.name = input('Enter you name: ')
@@ -58,22 +65,19 @@ class Card:
     Initialize a single card
     Card attributes are 'suit','rank' and 'value'
     suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
-    ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
+    ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine',
+    'Ten', 'Jack', 'Queen', 'King', 'Ace')
     '''
 
     def __init__(self):
 
         self.suit = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
-        self.rank = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
+        self.rank = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight',
+                     'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 
-
-        '''import random
-        self.suit = random.choice(self.suit)
-        self.rank = random.choice(self.rank)
-        '''
 
     def __str__(self):
-        return ('{} of {}'.format(self.rank,self.suit))
+        return '{} of {}'.format(self.rank, self.suit)
 
 # Deck Class
 
@@ -257,15 +261,15 @@ def game_logic():
         player_hand.add_card()
         player_hand.add_card()
         print()
-        print('{} Hand: '.format(player),player_hand)
-        print('{} Points: '.format(player),player_hand.hand_value())
+        print('{} Hand: '.format(player), player_hand)
+        print('{} Points: '.format(player), player_hand.hand_value())
 
         # Give dealer two cards
         dealer_hand.add_card()
         dealer_hand.add_card()
         print()
-        print('Dealer Hand: ',dealer_hand)
-        print('Dealer Points: ',dealer_hand.hand_value())
+        print('Dealer Hand: ', dealer_hand)
+        print('Dealer Points: ', dealer_hand.hand_value())
 
     except:
 
@@ -279,20 +283,20 @@ def game_logic():
             if hit_or_stand.lower() == 'h':
                 player_hand.add_card()
                 print()
-                print('{} Hand: '.format(player),player_hand)
-                print('{} Points: '.format(player),player_hand.hand_value())
+                print('{} Hand: '.format(player), player_hand)
+                print('{} Points: '.format(player), player_hand.hand_value())
                 print()
-                print('Dealer Hand: ',dealer_hand)
-                print('Dealer Points: ',dealer_hand.hand_value())
+                print('Dealer Hand: ', dealer_hand)
+                print('Dealer Points: ', dealer_hand.hand_value())
                 continue
             else:
                 dealer_hand.add_card()
                 print()
-                print('{} Hand: '.format(player),player_hand)
-                print('{} Points: '.format(player),player_hand.hand_value())
+                print('{} Hand: '.format(player), player_hand)
+                print('{} Points: '.format(player), player_hand.hand_value())
                 print()
-                print('Dealer Hand: ',dealer_hand)
-                print('Dealer Points: ',dealer_hand.hand_value())
+                print('Dealer Hand: ', dealer_hand)
+                print('Dealer Points: ', dealer_hand.hand_value())
                 continue
 
 
