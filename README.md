@@ -1,13 +1,5 @@
 
 
-Write a function called fizz_buzz that takes a number.
-If the number is divisible by 3, it should return “Fizz”.
-If it is divisible by 5, it should return “Buzz”.
-If it is divisible by both 3 and 5, it should return “FizzBuzz”.
-Otherwise, it should return the same number.
-  
-  
-  
 Write a function for checking the speed of drivers. This function should have one parameter: speed.
 If speed is less than 70, it should print “Ok”.
 Otherwise, for every 5km above the speed limit (70), it should give the driver one demerit point and print the total number of demerit points. For example, if the speed is 80, it should print: “Points: 2”.
