@@ -56,5 +56,7 @@ def password_generator(length=4):
 
         placeholder_boolean = False
 
+    return user_password
+
 # Execution
 password_generator()
