@@ -42,20 +42,16 @@ def roll_die(number=2):
     return outcomes_list
 
 # Program Logic
-while True:
-    num_die = input('Enter number of die (1-6) or \'q\' to quit: ')
-    if num_die == '':
-        print('Invalid entry. Please enter a number')
-    elif num_die.lower() == 'q':
-        print('End of simulation. Sorry to see you go')
-        break
+def start_roll():
+    total_val = 0
+    values = roll_die()
+    if len(values) == 0:
+        print('...NO OUTCOMES...')
     else:
-        values = roll_die(num_die)
-        if len(values) == 0:
-            print('...NO OUTCOMES...')
-        else:
-            print()
-            print('...OUTCOMES...')
-            for val in values:
-                print('Dice:{}\tValue:{}'.format(values.index(val), val))
-                print('................')
+        print()
+        print('...DIE OUTCOMES...')
+        for val in values:
+            print('Dice:{}\tValue:{}'.format(values.index(val), val))
+            print('................')
+            total_val += val
+    return total_val

@@ -3,7 +3,7 @@ Game Logic
 '''
 import auxillary_cards
 import bank
-# import dice_roll
+import dice_roll
 import player
 import property
 
@@ -45,3 +45,13 @@ print('Players: {}'.format(game_players))
 for play in game_players:
     playboy = player.Player(play)
     print(playboy)
+
+# Take turns playing
+p_index = 0
+turn = game_players[p_index]
+print()
+print('{} goes first'.format(turn))
+
+if turn == game_players[0]:
+    steps = dice_roll.start_roll()
+    print('Move {} steps'.format(steps))
