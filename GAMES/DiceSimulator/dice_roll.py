@@ -26,9 +26,9 @@ def roll_die(number=2):
                 print()
                 print('Maximum number of dice available is 6')
                 break
-            elif number <= 0:
+            elif number < 1:
                 print()
-                print('Minimum number of dice is 0')
+                print('Minimum number of die is 1')
                 break
             else:
                 # shuffle numbers for a random result
@@ -47,7 +47,7 @@ while True:
     if num_die == '':
         print('Invalid entry. Please enter a number')
     elif num_die.lower() == 'q':
-        print('Sorry to see you go')
+        print('End of simulation. Sorry to see you go')
         break
     else:
         values = roll_die(num_die)
