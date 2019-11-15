@@ -1,15 +1,17 @@
 '''
 Game Logic
 '''
+
 # Import necessary modules
 import auxillary_cards
 import bank
 import dice_roll
+import game_board
 import player
-import property
+import single_property
 import station
 import utility
-import game_board
+
 
 print('...MONOPOLY...MONOPOLY...MONOPOLY')
 print('.......WELCOME TO THE GAME.......')
@@ -34,6 +36,7 @@ while True:
 
 # Get names of Players
 # Keep a counter
+print()
 print('Let\'s get the names of players')
 count = 0
 while count < num_players:
@@ -44,7 +47,7 @@ while count < num_players:
 # Print players who are in the game
 print('Players: {}'.format(game_players))
 
-# Assign players unique numbers
+#Assign players unique numbers
 for play in game_players:
     playboy = player.Player(play)
     print(playboy)
@@ -55,6 +58,12 @@ turn = game_players[p_index]
 print()
 print('{} goes first'.format(turn))
 
+# Print the board
+board = game_board.Board()
+board.display_board()
+
 if turn == game_players[0]:
+    print()
+    print('{} is playing'.format(turn))
     steps = dice_roll.start_roll()
     print('Move {} steps'.format(steps))

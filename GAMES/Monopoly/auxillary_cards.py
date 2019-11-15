@@ -18,7 +18,7 @@ class AuxCards():
                        'Get Out of Jail Free',
                        'Go Back 3 Spaces',
                        'Go to Jail–Go directly to Jail–Do not pass Go, do not collect $200',
-                       'Make general repairs on all your property–For each house pay $25–For each hotel $100', 
+                       'Make general repairs on all your property–For each house pay $25–For each hotel $100',
                        'Pay poor tax of $15',
                        'Take a trip to Reading Railroad–If you pass Go, collect $200',
                        'Take a walk on the Boardwalk–Advance token to Boardwalk',
@@ -30,7 +30,23 @@ class AuxCards():
         print('CHANCE: {}'.format(self.auxcard[0]))
 
     def community_card(self):
-        card_holder = []
+        card_holder = ['Advance to Go (Collect $200)',
+                       'Bank error in your favor—Collect $200',
+                       "Doctor's fee - Pay $50",
+                       'From sale of stock you get $50',
+                       'Get Out of Jail Free',
+                       'Go to Jail–Go directly to jail–Do not pass Go–Do not collect $200',
+                       'Grand Opera Night—Collect $50 from every player for opening night seats',
+                       'Holiday Fund matures—Receive $100',
+                       'Income tax refund–Collect $20',
+                       'It is your birthday—Collect $10', 
+                       'Life insurance matures–Collect $100',
+                       'Pay hospital fees of $100',
+                       'Pay school fees of $150',
+                       'Receive $25 consultancy fee',
+                       'You are assessed for street repairs–$40 per house–$115 per hotel',
+                       'You have won second prize in a beauty contest–Collect $10',
+                       'You inherit $100']
         random.shuffle(card_holder)
         self.auxcard.append(card_holder.pop())
         print('COMMUNITY CHEST: {}'.format(self.auxcard[0]))
