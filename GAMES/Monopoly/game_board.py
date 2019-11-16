@@ -4,8 +4,6 @@ This class represents the game board
 
 # Import necessary modules
 import single_property
-import station
-import utility
 
 
 class Board():
@@ -40,14 +38,14 @@ class Board():
         mayfair = single_property.Property({'MAYFAIR':400})
 
         # Define stations
-        kingscross = station.Station({'KINGS CROSS STATION':200})
-        maryle = station.Station({'MARYLEBONE STATION':200})
-        fenchurch = station.Station({'FENCHURCH STATION':200})
-        liverpool = station.Station({'LIVERPOOL STREET STATION':200})
+        kingscross = single_property.Property({'KINGS CROSS STATION':200})
+        maryle = single_property.Property({'MARYLEBONE STATION':200})
+        fenchurch = single_property.Property({'FENCHURCH STATION':200})
+        liverpool = single_property.Property({'LIVERPOOL STREET STATION':200})
 
         # Define Utilities
-        water = utility.Utility({'WATER WORKS':150})
-        elec = utility.Utility({'ELECTRIC COMPANY':150})
+        water = single_property.Property({'WATER WORKS':150})
+        elec = single_property.Property({'ELECTRIC COMPANY':150})
 
         # Fill Board
         self.spaces.append('GO')
@@ -111,7 +109,7 @@ class Board():
                        'Your building and loan matures—Collect $150',
                        'Your building and loan matures—Collect $150']
 
-        return self.chance
+        return self.chance.pop()
 
     def communities(self):
         self.community = ['Advance to Go (Collect $200)',
@@ -132,10 +130,10 @@ class Board():
                        'You have won second prize in a beauty contest–Collect $10',
                        'You inherit $100']
 
-        return self.community
+        return self.community.pop()
 
     def display_board(self):
         # Iterate through board list
         for pos in self.spaces:
-            print()
             print(pos)
+            print()

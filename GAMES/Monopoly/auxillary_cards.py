@@ -9,7 +9,7 @@ class AuxCards():
         self.auxcard = auxcard
 
     def chance_card(self):
-        card_holder = ['Advance to Go (Collect $200)',
+        self.auxcard = ['Advance to Go (Collect $200)',
                        'Advance to Illinois Ave — If you pass Go, collect $200',
                        'Advance to St. Charles Place – If you pass Go, collect $200',
                        'Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times the amount thrown.',
@@ -23,14 +23,14 @@ class AuxCards():
                        'Take a trip to Reading Railroad–If you pass Go, collect $200',
                        'Take a walk on the Boardwalk–Advance token to Boardwalk',
                        'You have been elected Chairman of the Board–Pay each player $50',
-                       'Your building and loan matures—Collect $150',
-                       'Your building and loan matures—Collect $150']
-        random.shuffle(card_holder)
-        self.auxcard.append(card_holder.pop())
-        print('CHANCE: {}'.format(self.auxcard[0]))
+                       'Your building and loan matures—Collect $150'
+                        ]
+
+        random.shuffle(self.auxcard)
+        return 'CHANCE: {}'.format(self.auxcard.pop())
 
     def community_card(self):
-        card_holder = ['Advance to Go (Collect $200)',
+        self.auxcard = ['Advance to Go (Collect $200)',
                        'Bank error in your favor—Collect $200',
                        "Doctor's fee - Pay $50",
                        'From sale of stock you get $50',
@@ -39,7 +39,7 @@ class AuxCards():
                        'Grand Opera Night—Collect $50 from every player for opening night seats',
                        'Holiday Fund matures—Receive $100',
                        'Income tax refund–Collect $20',
-                       'It is your birthday—Collect $10', 
+                       'It is your birthday—Collect $10',
                        'Life insurance matures–Collect $100',
                        'Pay hospital fees of $100',
                        'Pay school fees of $150',
@@ -47,12 +47,6 @@ class AuxCards():
                        'You are assessed for street repairs–$40 per house–$115 per hotel',
                        'You have won second prize in a beauty contest–Collect $10',
                        'You inherit $100']
-        random.shuffle(card_holder)
-        self.auxcard.append(card_holder.pop())
-        print('COMMUNITY CHEST: {}'.format(self.auxcard[0]))
 
-    def __str__(self):
-        if len(self.auxcard) == 0:
-            return 'None'
-        else:
-            return 'CARD: {}'.format(self.auxcard[0])
+        random.shuffle(self.auxcard)
+        return 'COMMUNITY CHEST: {}'.format(self.auxcard.pop())

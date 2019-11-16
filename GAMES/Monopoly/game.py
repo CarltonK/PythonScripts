@@ -9,8 +9,33 @@ import dice_roll
 import game_board
 import player
 import single_property
-import station
-import utility
+
+prop = single_property.Property
+aux = auxillary_cards.AuxCards()
+
+def check_position(space, p):
+
+    if type(space) == prop:
+
+        if space.owned == 'BANK':
+            user_act = input('Choose an action ("r") to roll dice, ("b") to buy property, ("s") to stay')
+            if user_act.lower() == 'b':
+                space.owned = p
+                p.buy_property(space)
+            elif user_act.lower() == 'r':
+                dice_roll.start_roll()
+                p != p
+            else:
+                p != p
+        else:
+            user_act = input('Pay rent to {}'.format(player))
+
+
+    elif type(space) == str:
+        aux.chance_card()
+    elif type(space) == str:
+        aux.community_card()
+
 
 
 print('...MONOPOLY...MONOPOLY...MONOPOLY')
@@ -37,7 +62,7 @@ while True:
 # Get names of Players
 # Keep a counter
 print()
-print('Let\'s get the names of players')
+print('Enter the names of players')
 count = 0
 while count < num_players:
     p_name = input('What is your name? ')
@@ -46,24 +71,17 @@ while count < num_players:
 
 # Print players who are in the game
 print('Players: {}'.format(game_players))
+print('Let the game begin')
 
-#Assign players unique numbers
-for play in game_players:
-    playboy = player.Player(play)
-    print(playboy)
+game_on = True
+while game_on:
+    for players in game_players:
+        print('It is your turn {}'.format(players))
+        board = game_board.Board()
+        board.display_board()
+        steps = dice_roll.start_roll()
+        print('Move {} steps'.format(steps))
+        print('PREVIOUS POSITION: {}\nCURRENT POSITION: {}'.format(board.spaces[0], board.spaces[steps]))
+        check_position(board.spaces[steps], player.Player(players))
 
-# Take turns playing
-p_index = 0
-turn = game_players[p_index]
-print()
-print('{} goes first'.format(turn))
-
-# Print the board
-board = game_board.Board()
-board.display_board()
-
-if turn == game_players[0]:
-    print()
-    print('{} is playing'.format(turn))
-    steps = dice_roll.start_roll()
-    print('Move {} steps'.format(steps))
+        game_on = False
