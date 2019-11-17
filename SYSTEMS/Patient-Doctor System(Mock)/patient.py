@@ -18,7 +18,7 @@ class Patient():
         elif request[0].lower() == 'n':
             print('Maybe next time')
         else:
-            print('We take is as a NO')
+            print('We take it as a NO')
 
     def get_bmi(self):
         self.height = (self.height)/100
@@ -28,6 +28,3 @@ class Patient():
     def __str__(self):
         return 'NAME: {}\nAGE: {}\nBMI: {}'.format(
                 self.name, self.age, self.bmi)
-
-pat = Patient('Mark', 23, 177, 83)
-print(pat)
