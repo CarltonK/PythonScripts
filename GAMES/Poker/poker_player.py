@@ -82,6 +82,7 @@ class Player():
                 self.p_name, self.p_hand, self.p_value
         )
 '''
+
 ...TEST...
 name = input('What is your name? ')
 cadi_list = [{'Hearts':'Two'},]

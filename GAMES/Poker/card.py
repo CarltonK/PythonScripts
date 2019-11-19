@@ -26,6 +26,7 @@ class Card():
 
 
 '''
+
 ...TEST...
 c = Card({'Spades':'Jack'})
 help(c)
