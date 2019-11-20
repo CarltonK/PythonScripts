@@ -3,6 +3,8 @@ Initiate a single poker player
 '''
 from deck import Deck
 from card import Card
+from table import Table
+
 class Player():
     '''
     The player has a name and list
@@ -14,18 +16,36 @@ class Player():
         Eg: p_hand=[{'Hearts':'Two'},{'Spades':'Jack'},..]
         '''
         self.p_hand = p_hand
-        self.p_name = p_name
+        self.p_name = p_name.title()
         self.p_value = p_value
 
+        self.starting_cards()
         self.p_value = self.player_value()
 
     def pick_card(self):
         '''
         Pick a card from deck
-        Pop from deck, show popped card and add to player hand
+        Pop from deck, show card and add to player hand
         '''
         self.p_hand.append(Deck().deal())
         self.p_value = self.player_value()
+
+    def drop_card(self):
+        try:
+            choice = int(input('Which card do you want to drop? (1,2,3...) '))
+        except ValueError:
+            print('{} is an Invalid entry\nPlease enter a number')
+        else:
+            chosen = self.p_hand.pop(choice+1)
+            Table().add_cards(chosen)
+
+    def starting_cards(self):
+        '''
+        Assign 4 cards to each player
+        '''
+        self.p_hand = [Deck().deal(), Deck().deal(),
+                       Deck().deal(), Deck().deal()]
+
 
     def show_hand(self):
         print()
@@ -43,7 +63,7 @@ class Player():
             value_alpha = list(val.values())
             hand_alpha_list.append(value_alpha[0])
 
-        print(hand_alpha_list)
+        # print(hand_alpha_list)
         # Initialize the total value
         total_value = 0
 
@@ -82,12 +102,13 @@ class Player():
         return total_value
 
     def __str__(self):
+        print()
         return 'NAME: {}\nHAND: {}\nVALUE: {}'.format(
                 self.p_name, self.p_hand, self.p_value
         )
 
+
 '''
-...TEST...
 name = input('What is your name? ')
 cadi_list = [{'Hearts':'Two'}]
 p = Player(name, cadi_list)
