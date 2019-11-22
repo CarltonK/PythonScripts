@@ -3,7 +3,6 @@ Initiate a single poker player
 '''
 from deck import Deck
 from card import Card
-from table import Table
 
 class Player():
     '''
@@ -18,34 +17,30 @@ class Player():
         self.p_hand = p_hand
         self.p_name = p_name.title()
         self.p_value = p_value
-
-        self.starting_cards()
         self.p_value = self.player_value()
 
-    def pick_card(self):
+    def pick_card(self, card):
         '''
         Pick a card from deck
         Pop from deck, show card and add to player hand
         '''
-        self.p_hand.append(Deck().deal())
+        self.p_hand.append(card)
+        print('You have picked: {}'.format(Card(card)))
         self.p_value = self.player_value()
+        print('YOUR HAND: {}'.format(self.p_hand))
 
     def drop_card(self):
         try:
+            print('YOUR HAND: {}'.format(self.p_hand))
             choice = int(input('Which card do you want to drop? (1,2,3...) '))
         except ValueError:
             print('{} is an Invalid entry\nPlease enter a number')
         else:
-            chosen = self.p_hand.pop(choice+1)
-            Table().add_cards(chosen)
-
-    def starting_cards(self):
-        '''
-        Assign 4 cards to each player
-        '''
-        self.p_hand = [Deck().deal(), Deck().deal(),
-                       Deck().deal(), Deck().deal()]
-
+            card = self.p_hand[choice-1]
+            chosen = self.p_hand.remove(card)
+            print('You have played: {}'.format(Card(card)))
+        finally:
+            print('YOUR HAND: {}'.format(self.p_hand))
 
     def show_hand(self):
         print()

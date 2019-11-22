@@ -4,6 +4,7 @@ Define the deck of Cards
  # Import random and card modules
 from random import shuffle
 from card import Card
+
 class Deck():
     '''
     A deck of cards is a collection of 52 cards
@@ -40,7 +41,12 @@ class Deck():
 
         '''
         Shuffle the deck of cards
+        Shuffle five times if necessary
         '''
+        shuffle(self.deck)
+        shuffle(self.deck)
+        shuffle(self.deck)
+        shuffle(self.deck)
         shuffle(self.deck)
 
     def deal(self):
