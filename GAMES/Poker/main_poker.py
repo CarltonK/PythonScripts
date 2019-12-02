@@ -41,7 +41,7 @@ def poker_game():
                 # Drop card and add to the table
                 game_table.add_cards(i.drop_card())
                 # Drop card
-                i.drop_card()
+                #i.drop_card()
             elif p_choice[0].lower() == 'p':
                 # Pick card
                 i.pick_card(game_deck.deal())
